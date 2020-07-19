@@ -3,7 +3,7 @@ A simple program made in C that create a mountain of strings for each supplied a
 ## Example
 ![strmnt](example.png)
 ## Compiling
-> If you have gcc installed
+> If you have gcc and make installed:
 ```
 make
 ```
