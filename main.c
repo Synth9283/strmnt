@@ -2,15 +2,14 @@
 #include <string.h>
 #include <time.h>
 
-int amount, amount_len;
+int amount;
 clock_t begin;
 void strmnt(char *str);
 
 int main(int argc, char **argv) {
 	begin = clock();
 	for (int i=1;i<argc;i++) {
-		amount_len = strlen(*(argv+i))-1;
-		amount = amount_len;
+		amount = strlen(*(argv+i))-1;
 		strmnt(*(argv+i));
 	}
 	printf("Took: %f seconds\n", (double)(clock()-begin)/CLOCKS_PER_SEC);
@@ -18,13 +17,14 @@ int main(int argc, char **argv) {
 }
 
 void strmnt(char *str) {
-	for (int i=0;(size_t)i<amount_len;i++) {
+	size_t len = strlen(str);
+	for (int i=0;(size_t)i<len;i++) {
 		for (int j=0;j<i+1;j++) {
 			printf("%c", *(str+j));
 		}
 		printf("\n");
 	}
-	for (int i=amount_len;i>0;i--) {
+	for (int i=len;i>0;i--) {
 		for (int j=0;j<amount+1;j++) {
 			if (j==amount) break;
 			else printf("%c", *(str+j));
