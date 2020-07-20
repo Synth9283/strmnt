@@ -3,7 +3,6 @@
 #include <string.h>
 #include <time.h>
 
-char *buffer;
 clock_t begin;
 void strmnt(char *str);
 
@@ -18,16 +17,10 @@ int main(int argc, char **argv) {
 
 void strmnt(char *str) {
 	size_t len = strlen(str);
-	buffer = (char*)malloc(len);
 	for (int i=0;(size_t)i<len;i++) {
-		for (int j=0;j<i+1;j++) {
-			*(buffer+j) = *(str+j);
-		}
-		printf("%s\n", buffer);
+		printf("%.*s\n", i, str);
 	}
-	for (int i=len-1;i>0;i--) {
-		*(buffer+i) = '\0';
-		printf("%s\n", buffer);
+	for (int i=len-2;i>0;i--) {
+		printf("%.*s\n", i, str);
 	}
-	free(buffer);
 }
